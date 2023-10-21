@@ -1,5 +1,7 @@
 const audio = new Audio('audio.wav');
-let finishButton = document.getElementById('finish-button');
+let btn = document.querySelector('#start-btn');
+let finishBtn = document.getElementById('finish-button');
+let timer = 'off';
 
 function start(){
     let seconds = Number(document.querySelector('#seconds').value);
@@ -8,7 +10,9 @@ function start(){
 
     if (!minutes && !seconds && !hours){
         window.alert('No time inserted.');
-    } else{
+    } else if (timer == 'off'){
+        timer = 'on';
+        btn.value = 'Stop';
         if (hours > 0 && minutes == 0){
             hours --;
             show('hours');
@@ -23,7 +27,7 @@ function start(){
             seconds = 59;
             show('seconds');
         }
-        const countDown = setInterval(() => {
+        countDown = setInterval(() => {
             seconds --;
             show('seconds');
             if (seconds == 0 && minutes > 0){
@@ -43,6 +47,15 @@ function start(){
                 show('minutes');
             }
         }, 1000);
+        globalThis.countDown;
+    } else if (timer == 'on'){
+        timer = 'off';
+        btn.value = 'Start';
+        clearInterval(countDown);
+        seconds = minutes = hours = 0;
+        show ('seconds');
+        show ('minutes');
+        show ('hours');
     }
 
     function show(x){
@@ -55,11 +68,12 @@ function start(){
                 break
             case 'hours':
                 document.querySelector('#hours').value = hours;
+                break
         }
     }
 }
 
 function finish(){
     audio.pause();
-    finishButton.style.display = 'none';
+    finishBtn.style.display = 'none';
 }
