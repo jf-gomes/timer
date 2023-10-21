@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer | JF Gomes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="main-div">
+            <div>
+                <p class="labels">Hours</p>
+                <input type="number" name="hours" id="hours" class="user-inputs">
+            </div>
+            <div>
+                <p class="labels">Minutes</p>
+                <input type="number" name="minutes" id="minutes" class="user-inputs">
+            </div>
+            <div>
+                <p class="labels">Seconds</p>
+                <input type="number" name="seconds" id="seconds" class="user-inputs">
+            </div>
+        </div>
+        <input type="button" value="Start" onclick="start()" class="btn">
+        <div id="finish-button">
+            <input type="button" value="Finish" onclick="finish()" class="btn">
+        </div>
+    </main>
+    <footer>
+        <p>Developed by <a href="https://jf-gomes.github.io/personal-website/" target="_blank">João Víctor Feitosa Gomes</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
