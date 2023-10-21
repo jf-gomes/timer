@@ -37,7 +37,7 @@ function start(){
             } else if(seconds == 0 && minutes == 0){
                 clearInterval(countDown);
                 audio.play();
-                finishButton.style.display = 'flex';
+                finishBtn.style.display = 'flex';
             }
 
             if (minutes == 0 && hours > 0){
